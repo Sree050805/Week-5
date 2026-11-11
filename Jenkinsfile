@@ -14,28 +14,28 @@ pipeline {
         stage('Compile') {
             steps {
                 echo 'Compiling the Factorial and TestFactorial programs'
-                bat 'javac Factorial.java TestFactorial.java'
+                sh 'javac Factorial.java TestFactorial.java'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running the TestFactorial program'
-                bat 'java TestFactorial'
+                sh 'java TestFactorial'
             }
         }
 
         stage('Run') {
             steps {
                 echo 'Running the Factorial program'
-                bat 'java Factorial'
+                sh 'java Factorial'
             }
         }
 
         stage('Package JAR') {
             steps {
                 echo 'Build'
-                bat 'jar cfm factorial.jar manifest.txt Factorial.class'
+                sh 'jar cfm factorial.jar manifest.txt Factorial.class'
             }
         }
 
